@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080e13"><title>Le Mystère du Reste · 4C</title>
+<style>
+:root{--bg:#070d13;--ink:#f7f2e8;--muted:#a9b9bf;--gold:#ffc66a;--gold2:#e99536;--cyan:#7de8e1;--red:#ff6179;--green:#8affb9;--frame:#354854;--blue:#78b6ff;--panel:#121d24;color-scheme:dark}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg)}body{font-family:Trebuchet MS,Arial,sans-serif;color:var(--ink);overflow-x:hidden}button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid white;outline-offset:4px}button:disabled{cursor:not-allowed;opacity:.44}[hidden]{display:none!important}
+.screen{min-height:100vh;position:relative;isolation:isolate;overflow:hidden}.screen:before{content:"";position:absolute;inset:0;z-index:-3;background:radial-gradient(ellipse 52% 85% at 70% 5%,#27443e 0%,transparent 68%),radial-gradient(ellipse 70% 65% at 0% 95%,#2a1d24 0%,transparent 72%),linear-gradient(115deg,#070d13,#131d23 55%,#090e13)}.screen:after{content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;opacity:.36;background:repeating-linear-gradient(0deg,rgba(1,7,9,.16) 0 1px,transparent 1px 4px)}.vignette{position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 90% 80% at 50% 42%,transparent 25%,#05090fd4 100%)}
+.header{padding:21px clamp(24px,4.4vw,78px);display:flex;align-items:center;justify-content:space-between;gap:25px;border-bottom:1px solid #accacc27;position:relative;z-index:5}.brand{display:flex;align-items:center;gap:14px;font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;font-size:24px;letter-spacing:.06em}.brandMark{color:#071017;background:var(--gold);border:2px solid #ffe4a8;width:43px;height:43px;display:grid;place-items:center;transform:rotate(-8deg);box-shadow:0 0 22px #ffbc5b5a;font-family:Georgia,serif;font-size:29px}.brandSub{display:block;color:var(--gold);font:700 10px monospace;letter-spacing:.19em;margin-top:2px}.headerRight{display:flex;align-items:center;gap:17px}.tag{font:700 12px monospace;letter-spacing:.13em;color:#c0d1d0}.led{display:inline-block;width:8px;height:8px;border-radius:100%;background:var(--red);box-shadow:0 0 14px var(--red);margin-right:8px;animation:pulse 1.7s infinite}.borderBtn{background:#17232c;color:#eaf2ee;border:1px solid #62727a;padding:12px 16px;font:800 12px 'Trebuchet MS',sans-serif;letter-spacing:.11em;text-transform:uppercase}.borderBtn:hover{background:#273a42;border-color:var(--gold)}
+.page{width:min(1480px,calc(100% - 70px));margin:auto;min-height:calc(100vh - 86px);display:flex;flex-direction:column;justify-content:center;padding:36px 0 50px}.overline{font:800 12px 'Trebuchet MS',sans-serif;letter-spacing:.29em;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:13px}.overline:before{content:"";height:3px;width:40px;background:var(--gold);box-shadow:0 0 12px var(--gold)}h1,h2,h3{font-family:Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;font-weight:900;letter-spacing:.038em;text-transform:uppercase}h1{font-size:clamp(80px,10vw,163px);line-height:.82;margin:25px 0 23px;text-shadow:0 8px 0 #0007,0 22px 45px #000c}h1 span{display:block}h1 .accent{color:var(--gold);text-shadow:0 7px 0 #653e1b,0 15px 40px #000}h2{font-size:clamp(55px,6vw,92px);line-height:.94;margin:16px 0 18px}h2 .accent{color:var(--gold)}.lead{color:#c6d3d2;font-size:clamp(15px,1.4vw,20px);line-height:1.55;max-width:620px}.mainBtn{border:1px solid #fcd89a;background:linear-gradient(180deg,#ffcf7d,#eaa13a);color:#192129;font:900 18px Impact,'Arial Narrow',sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:18px 30px;box-shadow:0 6px 0 #74441d,0 13px 40px #0009;transition:transform .16s,filter .16s}.mainBtn:hover{filter:brightness(1.13);transform:translateY(-2px)}.mainBtn:active{transform:translateY(4px);box-shadow:0 2px 0 #74441d}.mainBtn.secondary{background:linear-gradient(180deg,#2a4047,#152630);border-color:#7f9b9c;color:#e4f6f3;box-shadow:0 5px 0 #061016}.mainBtn.danger{background:linear-gradient(180deg,#fe8c95,#e74b62);border-color:#ff9fab}.btnRow{display:flex;gap:15px;flex-wrap:wrap;align-items:center}.stageCounter{font:700 12px monospace;color:var(--gold);letter-spacing:.14em;padding:11px 16px;border:1px solid #66543b;background:#2a211b88}
+/* custom vector stage illustration */
+.heroGrid{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(380px,.87fr);gap:20px;align-items:center}.magicArt{height:min(66vh,600px);position:relative;filter:drop-shadow(0 17px 35px #000)}.magicArt svg{width:100%;height:100%;overflow:visible}.magicArt .ring{transform-origin:50% 52%;animation:spin 34s linear infinite}.magicArt .star{animation:glimmer 3s ease-in-out infinite}.magicArt .star:nth-child(2n){animation-delay:1.2s}.magicArt .float{animation:float 4s ease-in-out infinite}.magicArt .float2{animation:float 5s ease-in-out infinite reverse}
+.deck{display:grid;grid-template-columns:1fr 1fr;gap:18px}.terminal{background:linear-gradient(155deg,#26343a,#121d24 34%,#0b151b);border:5px solid #0a1318;outline:1px solid #60777b;box-shadow:0 12px 0 #0b1117,0 22px 45px #0009,inset 0 0 0 1px #ffffff1b;padding:20px;position:relative}.terminal:before,.terminal:after{position:absolute;top:8px;content:'+';border-radius:50%;background:#46565c;color:#101b20;width:16px;height:16px;display:grid;place-items:center;font:900 13px monospace}.terminal:before{left:9px}.terminal:after{right:9px}.panelTitle{color:var(--gold);font:800 12px monospace;letter-spacing:.15em;margin:5px 0 15px}.optionList{display:grid;gap:8px}.opt{width:100%;display:flex;align-items:center;gap:13px;padding:14px 15px;text-align:left;background:#13232b;border:1px solid #44606c;color:#f1f7f4;transition:.18s}.opt:hover{background:#243b43;border-color:#f4bf6c;transform:translateX(3px)}.opt[aria-pressed=true]{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),inset 3px 0 var(--gold),0 0 20px #f6ad4333;background:#3a3029}.optNum{color:var(--gold);font:900 13px monospace;padding-right:10px;border-right:1px solid #65757b}.math{font-family:Cambria,'Cambria Math','STIX Two Math',Georgia,serif}.opt .math{font-size:clamp(21px,2vw,30px)}.selectionBottom{margin-top:26px;border-top:1px solid #7182825a;padding-top:20px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.selectionBottom .math{font-size:clamp(22px,2vw,33px)}.hint{font:700 11px monospace;letter-spacing:.15em;color:#99b7bc;text-transform:uppercase}
+/* countdown screens */
+.centerStage{text-align:center;align-items:center}.centerStage .lead{max-width:920px;margin:0 auto 26px}.modeTitle{color:var(--gold);font:800 12px monospace;letter-spacing:.24em}.problemScreen{max-width:1050px;width:100%;margin:15px auto 22px;padding:20px 36px 24px;background:linear-gradient(180deg,#0b171b,#101d25);border:3px solid #4a6570;box-shadow:0 14px 0 #050b0c,0 22px 45px #0008,inset 0 0 25px #0008;position:relative}.problemScreen:before{content:"◈ TRANSMISSION MATHÉMATIQUE";display:block;color:var(--gold);font:700 11px monospace;letter-spacing:.16em;text-align:left;border-bottom:1px solid #4f6266;padding-bottom:10px;margin-bottom:10px}.problemScreen .math{font-size:clamp(30px,3.1vw,49px);line-height:1.6}.mathLine{display:block}.clockFace{width:min(325px,48vw);height:min(325px,48vw);margin:12px auto 22px;position:relative;border-radius:50%;border:12px solid #263943;background:radial-gradient(circle at 50% 35%,#1c3035,#080f14 80%);box-shadow:0 0 0 3px #ae874d,0 0 0 7px #12212b,0 15px 40px #0009,inset 0 0 45px #020a0c}.clockFace:before{content:"";position:absolute;inset:13px;border:2px dashed #b5a07455;border-radius:50%}.clockFace:after{content:"";position:absolute;left:50%;top:-29px;transform:translateX(-50%);width:60px;height:17px;border:4px solid #a88351;background:#252e33;border-radius:7px}.clockNum{position:absolute;inset:0;display:grid;place-items:center;font:900 clamp(90px,11vw,151px) Impact,'Arial Narrow',sans-serif;color:var(--gold);text-shadow:0 0 27px #ffc66a75}.clockNum.urgent{color:var(--red);text-shadow:0 0 30px #fd536895}.clockSmall{position:absolute;bottom:53px;left:0;right:0;font:700 12px monospace;letter-spacing:.28em;color:#9db6b7}.progressTrack{background:#0a1217;height:10px;border:1px solid #516775;width:min(540px,80vw);margin:12px auto 27px;box-shadow:inset 0 0 5px #000}.progressFill{height:100%;width:100%;background:linear-gradient(90deg,#f2aa40,#ffdd97);transition:width .12s linear}.infoBox{max-width:710px;margin:12px auto;padding:18px;background:#1d2c30;border:1px solid #516976;color:#b9cbd0;font:700 14px/1.5 'Trebuchet MS',sans-serif}.waitingRune{font:900 120px Georgia,serif;color:var(--gold);line-height:1;margin:10px;text-shadow:0 0 40px #eeb45a78;animation:float 4s ease-in-out infinite}.statusLine{min-height:26px;font-weight:700;color:var(--gold);letter-spacing:.08em}
+/* correction */
+.correctionStage{justify-content:flex-start;padding-top:34px}.correctionLayout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;margin-top:18px;align-items:start}.device{background:linear-gradient(155deg,#34454c,#142028 16%,#0b151b 60%,#27383e);border:7px solid #060b0f;outline:1px solid #62777c;box-shadow:0 16px 0 #060a0f,0 35px 55px #0009;padding:22px 26px 30px}.deviceHead{color:#b6c7c8;font:800 12px monospace;letter-spacing:.14em;display:flex;justify-content:space-between;border-bottom:1px solid #4b6267;padding-bottom:16px}.deviceScreen{background:#071315;border:3px solid #405961;box-shadow:inset 0 0 22px #000;padding:25px;margin-top:15px}.divisionLabel{font-size:clamp(25px,2.2vw,35px);text-align:center;margin-bottom:25px;line-height:1.6}.horner{border-collapse:collapse;width:100%;table-layout:fixed}.horner td{height:92px;text-align:center;font-size:clamp(26px,2.6vw,41px);position:relative;transition:background .18s;text-shadow:0 0 7px #ffffff0e}.horner td:first-child{width:66px;border-right:2px solid #96b5aa}.horner tr:first-child td,.horner tr:nth-child(2) td{border-bottom:2px solid #96b5aa}.horner .selected{background:#f5b44d2c;box-shadow:inset 0 0 0 2px var(--gold),0 0 22px #f5bc4d1b}.horner .product{color:var(--green)}.horner .remainder{color:var(--gold)}.horner .quotient{color:#f5f7f5}.horner .split{border-left:2px solid var(--gold)}.operation{min-height:56px;font-size:clamp(24px,2.5vw,35px);color:var(--gold);text-align:center;margin:15px auto 0}.answer{background:#1b2d30;border:1px solid #9b8052;padding:17px;font-size:clamp(21px,2.2vw,30px);line-height:1.6;margin-top:18px;text-align:center}.answer strong{color:var(--gold)}.controlStack{display:grid;gap:13px}.sideModule{background:linear-gradient(160deg,#1c2b32,#0d171d);border:1px solid #566b72;padding:19px;box-shadow:0 15px 35px #0009}.sideModule h3{font-size:28px;margin:0 0 14px;color:var(--gold)}.sideModule .mainBtn{width:100%;font-size:17px}.sideModule .mainBtn+.mainBtn{margin-top:15px}.phase{color:var(--cyan);font:700 12px monospace;letter-spacing:.16em;line-height:1.7}.sideArt{font:900 110px Georgia,serif;line-height:1;text-align:center;color:#ffcb7f;text-shadow:0 0 45px #ffcb7f88;letter-spacing:-.12em;padding:10px 0 18px}.foot{font:700 11px monospace;color:#9eafb3;letter-spacing:.14em;margin-top:20px}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{50%{opacity:.3}}@keyframes glimmer{50%{opacity:.35;transform:scale(.92)}}@keyframes float{50%{transform:translateY(-13px)}}
+@media(max-width:900px){.heroGrid,.correctionLayout{grid-template-columns:1fr}.magicArt{height:350px}.page{padding:30px 0}.correctionLayout{gap:16px}.controlStack{grid-template-columns:1fr 1fr}.sideModule:nth-child(2){display:none}}
+@media(max-width:690px){.header{padding:15px}.page{width:calc(100% - 30px)}.headerRight .tag{display:none}.deck,.controlStack{grid-template-columns:1fr}.heroGrid{gap:0}.magicArt{height:260px}h1{font-size:72px}.terminal{padding:14px}.device{padding:12px}.deviceScreen{padding:10px}.horner td{height:65px}.problemScreen{padding:12px}.problemScreen .math{font-size:26px}.brand{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.magicArt .ring,.magicArt .float,.magicArt .float2,.magicArt .star,.waitingRune,.led{animation:none}}
+
+/* Ajustements pour l'utilisation sur vidéoprojecteur. Même charte, dimensions adaptatives. */
+.headerRight { gap: 9px; }
+.shortcutHelp { padding: 12px 14px; min-width: 42px; }
+.observationPrompt { max-width: 790px; margin: 10px auto 0; color: #c6d3d2; font-size: clamp(15px, 1.25vw, 18px); line-height: 1.5; }
+.observationPrompt strong { color: var(--gold); }
+.shortcutOverlay { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: #020609e8; padding: 20px; }
+.shortcutDialog { width: min(600px, 100%); background: linear-gradient(155deg, #26343a, #0b151b); border: 2px solid #ad8252; box-shadow: 0 20px 80px #000; padding: 25px 30px; }
+.shortcutTop { display: flex; justify-content: space-between; align-items: start; gap: 15px; }
+.shortcutTop h3 { color: var(--gold); margin: 0 0 14px; font-size: 32px; }
+.shortcutLine { display: grid; grid-template-columns: 125px 1fr; align-items: center; gap: 15px; padding: 10px 0; border-bottom: 1px solid #546b704a; font-size: 15px; }
+.shortcutLine kbd { display: inline-block; width: fit-content; background: #14232a; padding: 6px 10px; border: 1px solid #688083; color: #ffcf7d; font: 800 13px monospace; }
+#repeatCopy { padding: 14px; }
+/* Hauteur courte : tous les contrôles essentiels tiennent dans la fenêtre. */
+@media (min-width: 901px) and (max-height: 1200px) {
+ .screen { min-height: 100vh; }
+ .header { padding: 10px clamp(18px, 3.3vw, 55px); gap: 12px; }
+ .brand { font-size: 20px; gap: 10px; }
+ .brandMark { width: 35px; height: 35px; font-size: 24px; }
+ .brandSub { font-size: 9px; }
+ .borderBtn { padding: 8px 11px; font-size: 11px; }
+ .shortcutHelp { min-width: 34px; padding: 8px 10px; }
+ .page { width: min(1480px,calc(100% - 48px)); min-height: calc(100vh - 60px); padding: 10px 0 17px; }
+ h1 { font-size: clamp(56px, 7.7vh, 87px); margin: 11px 0 12px; line-height: .88; }
+ h2 { font-size: clamp(44px, 6.4vh, 67px); margin: 9px 0 12px; }
+ .lead { font-size: 15px; line-height: 1.36; margin: 7px 0; }
+ .overline { font-size: 10px; letter-spacing: .23em; }
+ .heroGrid { gap: 14px; grid-template-columns:minmax(0,1.60fr) minmax(250px,.77fr); }
+ .magicArt { height: min(51vh, 475px); }
+ .deck { gap: 10px; }
+ .terminal { border-width: 3px; padding: 9px 11px; }
+ .terminal:before,.terminal:after { width: 12px; height: 12px; top: 3px; font-size: 10px; }
+ .terminal:before { left: 4px; }.terminal:after { right: 4px; }
+ .panelTitle { font-size: 10px; margin: 3px 0 8px; }
+ .optionList { gap: 5px; }
+ .opt { padding: 7px 8px; gap: 6px; }
+ .optNum { font-size: 10px; padding-right: 6px; }
+ .opt .math { font-size: clamp(17px, 1.32vw, 23px); }
+ .selectionBottom { margin-top: 10px; padding-top: 10px; gap: 8px; }
+ .selectionBottom .math { font-size: clamp(18px, 1.5vw, 25px); }
+ .hint { font-size: 9px; }
+ .mainBtn { font-size: 15px; padding: 11px 18px; box-shadow: 0 4px 0 #74441d, 0 10px 30px #0008; }
+ .stageCounter { padding: 8px 11px; }
+ .modeTitle { font-size: 10px; }
+ .problemScreen { max-width: 960px; margin: 8px auto 10px; padding: 12px 25px 15px; }
+ .problemScreen .math { font-size: clamp(28px, 3vw, 44px); line-height: 1.35; }
+ .problemScreen:before { font-size: 9px; padding-bottom: 6px; margin-bottom: 6px; }
+ .clockFace { width: min(27vh, 235px); height: min(27vh, 235px); margin: 8px auto 12px; border-width: 9px; }
+ .clockFace:after { top: -23px; height: 13px; width: 46px; }
+ .clockFace:before { inset: 8px; }
+ .clockNum { font-size: clamp(75px, 12.5vh, 125px); }
+ .clockSmall { bottom: 33px; font-size: 10px; }
+ .progressTrack { margin: 9px auto 10px; height: 8px; }
+ .waitingRune { font-size: 80px; margin: 5px; }
+ .statusLine { min-height: 20px; font-size: 13px; }
+ .observationPrompt { margin: 8px auto 4px; font-size: 14px; line-height: 1.38; }
+ #teacherScreen .btnRow { margin-top: 9px!important; }
+ .foot { font-size: 9px; margin-top: 10px; }
+ .correctionStage { justify-content: center; padding-top: 9px; }
+ .correctionLayout { grid-template-columns: minmax(0,1fr) 260px; gap: 15px; margin-top: 10px; }
+ .device { border-width: 5px; padding: 12px 16px 17px; }
+ .deviceHead { padding-bottom: 8px; font-size: 10px; }
+ .deviceScreen { padding: 10px 17px; margin-top: 8px; }
+ .divisionLabel { font-size: clamp(22px, 2vw, 30px); margin-bottom: 8px; line-height: 1.3; }
+ .horner td { height: clamp(48px, 7.4vh, 69px); font-size: clamp(23px, 2.2vw, 32px); }
+ .horner td:first-child { width: 56px; }
+ .operation { min-height: 38px; margin-top: 6px; font-size: 23px; }
+ .answer { margin-top: 10px; padding: 9px; font-size: 21px; line-height: 1.4; }
+ .sideModule { padding: 12px; }
+ .sideModule h3 { font-size: 23px; margin-bottom: 10px; }
+ .sideModule .mainBtn { font-size: 14px; }
+ .sideModule .mainBtn + .mainBtn { margin-top: 9px; }
+ .sideArt { font-size: 73px; padding: 0 0 7px; }
+ .sideModule:nth-child(2) .lead { font-size: 11px!important; }
+ .controlStack { gap: 10px; }
+}
+/* Hauteurs très courtes, ex. 1280x720 avec barre d'outils. */
+@media (min-width: 901px) and (max-height: 740px) {
+ .page { padding-top: 4px; padding-bottom: 7px; }
+ .header { padding-top: 7px; padding-bottom: 7px; }
+ h1 { font-size: clamp(52px, 7.2vh, 70px); margin: 7px 0; }
+ h2 { font-size: clamp(40px, 6vh, 58px); margin: 6px 0; }
+ .opt { padding: 5px 7px; }.optionList { gap: 4px; }
+ .terminal { padding: 7px 10px; }
+ .selectionBottom { margin-top: 7px; padding-top: 7px; }
+ .magicArt { height: min(48vh, 390px); }
+ .clockFace { width: min(24vh, 190px); height: min(24vh, 190px); }
+ .clockNum { font-size: 76px; }.clockSmall { bottom: 26px; }
+ .problemScreen { margin: 6px auto; }
+ .horner td { height: 45px; }
+ .sideModule:nth-child(2) { display: none; }
+}
+/* Fenêtres étroites et mobiles : empilement des panneaux et conservation du défilement. */
+@media (max-width: 900px) {
+ .screen { overflow: visible; }
+ .page { min-height: auto; }
+ .headerRight { gap: 5px; }
+ .magicArt { max-height: 36vh; }
+ .observationPrompt { padding: 0 12px; }
+}
+@media (max-width: 690px) {
+ .shortcutHelp { padding: 8px; min-width: 36px; }
+ .shortcutLine { grid-template-columns: 94px 1fr; gap: 8px; font-size: 12px; }
+ .shortcutDialog { padding: 18px; }
+ .shortcutTop h3 { font-size: 26px; }
+}
+
+</style></head><body>
+<!-- SCENE 1: CHOIX -->
+<section class="screen" id="choiceScreen"><div class="vignette"></div><header class="header"><div class="brand"><div class="brandMark">R</div><div>LE MYSTÈRE DU RESTE<span class="brandSub">EXPÉRIENCE MATHÉMATIQUE // 4C</span></div></div><div class="headerRight"><div class="tag"><i class="led"></i>SPECTACLE PRÊT</div><button class="borderBtn shortcutHelp" aria-label="Voir les raccourcis clavier" title="Raccourcis clavier (?)">⌨</button><button class="borderBtn fullscreen">⛶ PLEIN ÉCRAN</button></div></header>
+<main class="page"><div class="heroGrid"><div><div class="overline">UN TOUR DE MAGIE MATHÉMATIQUE</div><h1><span>CHOISISSEZ</span><span class="accent">UNE DIVISION.</span></h1><p class="lead">Le professeur se retourne. Vous choisissez un polynôme et un diviseur. Le professeur découvrira votre choix seulement lorsque vous le déciderez.</p><div class="deck"><div class="terminal"><div class="panelTitle">01 // DIVIDENDE · P(x)</div><div class="optionList" id="polys"></div></div><div class="terminal"><div class="panelTitle">02 // DIVISEUR · D(x)</div><div class="optionList" id="divisors"></div></div></div><div class="selectionBottom"><div><div class="hint">Votre sélection secrète</div><div class="math" id="selectedPreview">Choisissez P(x) et D(x).</div></div><button class="mainBtn" id="chooseBtn" disabled>SCELLER LE CHOIX ↗</button></div></div>
+<div class="magicArt" aria-hidden="true"><svg viewBox="0 0 620 670"><defs><radialGradient id="halo"><stop stop-color="#dbb575" stop-opacity=".34"/><stop offset="1" stop-color="#d7bd86" stop-opacity="0"/></radialGradient><linearGradient id="goldMetal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff1ba"/><stop offset=".42" stop-color="#af7130"/><stop offset=".72" stop-color="#ffd993"/><stop offset="1" stop-color="#7c4925"/></linearGradient><linearGradient id="hat" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#0b1518"/><stop offset=".48" stop-color="#32474a"/><stop offset="1" stop-color="#081013"/></linearGradient></defs><circle cx="310" cy="310" r="292" fill="url(#halo)"/><g class="ring"><circle cx="310" cy="310" r="240" stroke="#a37a42" stroke-dasharray="6 21" stroke-width="2" fill="none"/><circle cx="310" cy="310" r="211" stroke="#678d85" stroke-width="1" fill="none" opacity=".6"/><path d="M310 53 L322 70 L310 87 L298 70Z M310 536 L322 553 L310 570 L298 553Z M53 310 L70 298 L87 310 L70 322Z M536 310 L553 298 L570 310 L553 322Z" fill="#ffd07b"/></g><g class="float"><path d="M155 420 Q310 375 465 420 L447 500 Q315 545 170 500Z" fill="url(#hat)" stroke="#8aa6a2" stroke-width="3"/><ellipse cx="312" cy="415" rx="196" ry="37" fill="#071217" stroke="url(#goldMetal)" stroke-width="5"/><path d="M211 424 Q215 499 208 520 Q310 562 415 520 Q405 490 408 424" fill="url(#hat)" stroke="#759392" stroke-width="2"/><path d="M208 480 Q310 506 412 480 L413 505 Q309 528 208 505Z" fill="url(#goldMetal)"/><ellipse cx="310" cy="423" rx="101" ry="18" fill="#060a0c"/><path d="M155 536 Q311 575 466 536" stroke="#ffdb8b" stroke-width="6" fill="none" opacity=".6"/></g><g class="float2" font-family="Georgia" font-style="italic" font-size="78" text-anchor="middle" stroke="#050e12" stroke-width="2" paint-order="stroke"><text x="214" y="245" fill="#78e9de">P(x)</text><text x="420" y="245" fill="#ffcb75">R</text><text x="307" y="145" font-size="42" fill="#f2f1e8">x − a</text><text x="316" y="330" font-size="47" fill="#d7dfdb">?</text></g><g class="star" fill="#ffd17c"><path d="M109 176l6 20 20 6-20 6-6 20-6-20-20-6 20-6z"/><path d="M506 353l5 18 18 5-18 5-5 18-5-18-18-5 18-5z"/></g><g class="star" fill="#7de8e1"><path d="M431 94l5 17 17 5-17 5-5 17-5-17-17-5 17-5z"/></g><g transform="rotate(-30 430 540)"><rect x="423" y="472" width="16" height="172" rx="6" fill="#0a1518" stroke="#e4ae61" stroke-width="3"/><rect x="423" y="470" width="16" height="23" rx="3" fill="url(#goldMetal)"/><rect x="423" y="616" width="16" height="27" rx="3" fill="url(#goldMetal)"/></g></svg></div></div></main></section>
+<!-- SCENE 2: COPY -->
+<section class="screen" id="copyScreen" hidden><div class="vignette"></div><header class="header"><div class="brand"><div class="brandMark">R</div><div>LE MYSTÈRE DU RESTE<span class="brandSub">ACTE 02 // LA TRANSMISSION</span></div></div><div class="headerRight"><span class="stageCounter">02 / 04</span><button class="borderBtn shortcutHelp" aria-label="Voir les raccourcis clavier" title="Raccourcis clavier (?)">⌨</button><button class="borderBtn fullscreen">⛶ PLEIN ÉCRAN</button></div></header><main class="page centerStage"><div class="modeTitle">LE PROBLÈME S'AFFICHE… POUR 20 SECONDES</div><h2>À VOS <span class="accent">CRAYONS.</span></h2><div class="problemScreen"><div class="math" id="copyProblem"></div></div><div class="clockFace"><div class="clockNum" id="copyTime">20</div><div class="clockSmall">SECONDES</div></div><div class="progressTrack"><div class="progressFill" id="copyBar"></div></div><p class="lead">Recopiez l'énoncé. Il disparaîtra automatiquement.</p></main></section>
+<!-- SCENE 3: TEACHER -->
+<section class="screen" id="teacherScreen" hidden><div class="vignette"></div><header class="header"><div class="brand"><div class="brandMark">R</div><div>LE MYSTÈRE DU RESTE<span class="brandSub">ACTE 03 // LE TOUR DU PROFESSEUR</span></div></div><div class="headerRight"><span class="stageCounter">03 / 04</span><button class="borderBtn shortcutHelp" aria-label="Voir les raccourcis clavier" title="Raccourcis clavier (?)">⌨</button><button class="borderBtn fullscreen">⛶ PLEIN ÉCRAN</button></div></header><main class="page centerStage"><div class="modeTitle">UN DÉFI IMPOSSIBLE ?</div><h2>TROUVER LE RESTE EN <span class="accent">30 SECONDES.</span></h2><div id="teacherWaiting"><div class="waitingRune">?</div><p class="lead">Le professeur n’a toujours pas vu la division. Terminez votre schéma de Horner avant de lui montrer le problème.</p><div class="infoBox"><span style="color:var(--gold)">LE SAVIEZ-VOUS ?</span> &nbsp; 6 polynômes × 6 diviseurs = <strong style="color:var(--gold);font-size:21px">36 divisions possibles !</strong></div></div><div id="teacherRevealed" hidden><div class="problemScreen"><div class="math" id="teacherProblem"></div></div><div class="clockFace"><div class="clockNum" id="teacherTime">30</div><div class="clockSmall">SECONDES</div></div><div class="progressTrack"><div class="progressFill" id="teacherBar"></div></div><div class="statusLine" id="teacherStatus">LE CHRONOMÈTRE EST PRÊT</div>
+<p class="observationPrompt" id="observationPrompt">Le professeur va déterminer le reste au tableau en moins de 30 secondes.<br><strong>Observe attentivement ses calculs : sauras-tu découvrir son secret ?</strong></p></div><div class="btnRow" style="justify-content:center;margin-top:20px"><button class="mainBtn" id="revealTeacher">RÉVÉLER LE PROBLÈME ↗</button><button class="borderBtn" id="repeatCopy">↻ RÉAFFICHER 20 S</button><button class="mainBtn" id="startTeacher" hidden>▶ DÉMARRER 30 S</button><button class="mainBtn secondary" id="finishTeacher" hidden>J'AI TROUVÉ !</button><button class="mainBtn" id="goCorrection" hidden>VÉRIFIER AVEC HORNER ↗</button></div><p class="foot">LE PROFESSEUR ÉCRIT SON CALCUL AU TABLEAU · LA CORRECTION VÉRIFIERA LE RÉSULTAT</p></main></section>
+<!-- SCENE 4: CORRECTION -->
+<section class="screen" id="correctScreen" hidden><div class="vignette"></div><header class="header"><div class="brand"><div class="brandMark">R</div><div>LE MYSTÈRE DU RESTE<span class="brandSub">ACTE 04 // VÉRIFICATION</span></div></div><div class="headerRight"><span class="stageCounter">04 / 04</span><button class="borderBtn shortcutHelp" aria-label="Voir les raccourcis clavier" title="Raccourcis clavier (?)">⌨</button><button class="borderBtn fullscreen">⛶ PLEIN ÉCRAN</button></div></header><main class="page correctionStage"><div class="overline">COMPARONS LES RÉSULTATS</div><h2>VÉRIFIONS AVEC <span class="accent">HORNER.</span></h2><div class="correctionLayout"><div class="device"><div class="deviceHead"><span>CONSOLE DE CALCUL // DIVISION SYNTHÉTIQUE</span><span style="color:#83d7cf">● OPÉRATIONNELLE</span></div><div class="deviceScreen"><div class="divisionLabel math" id="correctionProblem"></div><table class="horner math" id="hornerTable" aria-label="Schéma de Horner"></table><div class="operation math" id="operation"></div></div><div class="answer math" id="result" hidden></div></div><div class="controlStack"><div class="sideModule"><div class="panelTitle">COMMANDES // RECONSTITUTION</div><h3>CORRECTION DU SCHÉMA</h3><p class="phase" id="phase">PRÊT À DÉMARRER</p><div style="height:17px"></div><button class="mainBtn" id="playCorrection">▶ LANCER LA CORRECTION</button><button class="mainBtn secondary" id="replayCorrection">↻ RECOMMENCER</button><button class="mainBtn secondary" id="another">NOUVELLE DIVISION ↗</button></div><div class="sideModule"><div class="sideArt">P<span style="font-size:.5em;color:var(--cyan)">→</span>R</div><div class="hint" style="text-align:center">QUOTIENT + RESTE</div><p class="lead" style="font-size:14px;text-align:center;margin:12px auto 0">Les nombres employés s'illuminent au fil du schéma.</p></div></div></div></main></section>
+<!-- Aide discrète réservée au pilotage par l'enseignant -->
+<div class="shortcutOverlay" id="shortcutOverlay" hidden>
+  <div class="shortcutDialog" role="dialog" aria-modal="true" aria-labelledby="shortcutsTitle">
+    <div class="shortcutTop"><div><div class="panelTitle">COMMANDES DE PRÉSENTATION</div><h3 id="shortcutsTitle">RACCOURCIS CLAVIER</h3></div><button class="borderBtn" id="closeShortcuts" aria-label="Fermer">✕</button></div>
+    <div class="shortcutLine"><kbd>Espace</kbd><span>Étape suivante / action principale</span></div>
+    <div class="shortcutLine"><kbd>R</kbd><span>Relancer les 20 secondes (avant le défi) ou réinitialiser Horner</span></div>
+    <div class="shortcutLine"><kbd>Maj + N</kbd><span>Nouvelle division (retour au choix)</span></div>
+    <div class="shortcutLine"><kbd>?</kbd><span>Afficher ou masquer cette aide</span></div>
+    <div class="shortcutLine"><kbd>Échap</kbd><span>Fermer cette aide</span></div>
+    <p class="foot">Les chronomètres et la correction ne progressent jamais automatiquement vers l'étape suivante.</p>
+  </div>
+</div>
+<script>
+'use strict';
+// Six polynômes vérifiés pour les six diviseurs : |R| <= 77 ; une seule division exacte.
+const POLYS=[[1,-3,4,-5],[1,2,-5,3],[1,-4,2,5],[2,1,3,5],[1,-1,2,-2],[1,0,-3,1]];
+const DIVISORS=[1,2,3,-1,-2,-3];
+const COLOURS=['#78b6ff','#7de8e1','#ffc66a','#ff92a3','#c8b0fb','#b5e99b'];
+const $=id=>document.getElementById(id);
+let selectedP=null,selectedD=null,copyLoop=null,teacherLoop=null,animationId=0,teacherStarted=false,teacherFinished=false;
+const stages=['choice','copy','teacher','correct'];
+function stage(name){stages.forEach(s=>$(s+'Screen').hidden=s!==name);window.scrollTo({top:0,behavior:'instant'});}
+function signNum(v){return v<0?'−'+(-v):String(v)}
+function polyHtml(c){let out='',degree=c.length-1;for(let i=0;i<c.length;i++){let v=c[i],power=degree-i;if(v===0)continue;let term=(Math.abs(v)===1&&power>0?'':Math.abs(v))+(power===0?'':power===1?'x':`x<sup>${power}</sup>`);if(out)out+=v<0?' − ':' + ';else if(v<0)out+='−';out+=term;}return out||'0';}
+function divisorHtml(a){return a<0?`x + ${-a}`:`x − ${a}`}
+function divisionHtml(){return `<span class="mathLine">P(x) = ${polyHtml(POLYS[selectedP])}</span><span class="mathLine">D(x) = ${divisorHtml(DIVISORS[selectedD])}</span>`}
+function renderChoices(){const p=$('polys'),d=$('divisors');p.replaceChildren();d.replaceChildren();POLYS.forEach((coeffs,i)=>{const b=document.createElement('button');b.className='opt';b.setAttribute('aria-pressed',String(selectedP===i));b.innerHTML=`<span class="optNum">0${i+1}</span><span class="math">${polyHtml(coeffs)}</span>`;b.onclick=()=>{selectedP=i;renderChoices();updateChoice()};p.append(b)});DIVISORS.forEach((a,i)=>{const b=document.createElement('button');b.className='opt';b.setAttribute('aria-pressed',String(selectedD===i));b.innerHTML=`<span class="optNum">0${i+1}</span><span class="math">${divisorHtml(a)}</span>`;b.onclick=()=>{selectedD=i;renderChoices();updateChoice()};d.append(b)});}
+function updateChoice(){const valid=selectedP!==null&&selectedD!==null;$('chooseBtn').disabled=!valid;$('selectedPreview').innerHTML=valid?divisionHtml():'Choisissez P(x) et D(x).';}
+function stopTimers(){clearInterval(copyLoop);clearInterval(teacherLoop);copyLoop=null;teacherLoop=null;}
+function updateTimer(timeEl,barEl,deadline,duration){const left=Math.max(0,deadline-performance.now()),n=Math.ceil(left/1000);$(timeEl).textContent=n;$(timeEl).classList.toggle('urgent',n<=5);$(barEl).style.width=(left/duration*100)+'%';return left;}
+function startCopy(){if(selectedP===null||selectedD===null)return;stopTimers();animationId++;stage('copy');$('copyProblem').innerHTML=divisionHtml();$('copyTime').classList.remove('urgent');const end=performance.now()+20000;const tick=()=>{if(updateTimer('copyTime','copyBar',end,20000)===0){clearInterval(copyLoop);copyLoop=null;$('copyProblem').textContent='';teacherWaiting();}};tick();copyLoop=setInterval(tick,75);}
+function teacherWaiting(){stage('teacher');$('teacherWaiting').hidden=false;$('teacherRevealed').hidden=true;$('teacherProblem').textContent='';$('teacherTime').textContent='30';$('teacherTime').classList.remove('urgent');$('teacherBar').style.width='100%';$('teacherStatus').textContent='LE CHRONOMÈTRE EST PRÊT';$('observationPrompt').innerHTML='Le professeur va déterminer le reste au tableau en moins de 30 secondes.<br><strong>Observe attentivement ses calculs : sauras-tu découvrir son secret ?</strong>';$('revealTeacher').hidden=false;$('repeatCopy').hidden=false;$('startTeacher').hidden=true;$('finishTeacher').hidden=true;$('goCorrection').hidden=true;teacherStarted=false;teacherFinished=false;}
+function revealTeacher(){$('teacherWaiting').hidden=true;$('teacherRevealed').hidden=false;$('teacherProblem').innerHTML=divisionHtml();$('revealTeacher').hidden=true;$('repeatCopy').hidden=true;$('startTeacher').hidden=false;}
+function startTeacher(){if(teacherStarted)return;teacherStarted=true;$('startTeacher').hidden=true;$('finishTeacher').hidden=false;$('teacherStatus').textContent='LE PROFESSEUR CALCULE AU TABLEAU…';const end=performance.now()+30000;const tick=()=>{if(updateTimer('teacherTime','teacherBar',end,30000)===0)finishTeacher(false)};tick();teacherLoop=setInterval(tick,75);}
+function finishTeacher(early=true){if(teacherFinished)return;teacherFinished=true;clearInterval(teacherLoop);teacherLoop=null;$('finishTeacher').hidden=true;$('startTeacher').hidden=true;$('goCorrection').hidden=false;$('teacherStatus').textContent=early?'LE RESTE EST TROUVÉ. MAIS COMMENT ?':'TEMPS ÉCOULÉ. MAIS COMMENT ?';$('observationPrompt').innerHTML='Compare le résultat au tableau avec ton reste obtenu par Horner.<br><strong>Comment le professeur a-t-il trouvé ce nombre ?</strong>';}
+function horner(coeffs,a){let bottom=[coeffs[0]],middle=[null];for(let i=1;i<coeffs.length;i++){let prod=bottom[i-1]*a;middle.push(prod);bottom.push(coeffs[i]+prod)}return {bottom,middle,q:bottom.slice(0,-1),r:bottom.at(-1)};}
+function tdId(row,col){return `hc_${row}_${col}`}
+function clearMarks(){document.querySelectorAll('.horner .selected').forEach(el=>el.classList.remove('selected'))}
+function marks(...coords){clearMarks();coords.forEach(([r,c])=>$(tdId(r,c))?.classList.add('selected'))}
+function makeTable(){const coeffs=POLYS[selectedP],a=DIVISORS[selectedD],table=$('hornerTable');table.replaceChildren();for(let r=0;r<3;r++){const tr=document.createElement('tr');for(let c=0;c<=coeffs.length;c++){const cell=document.createElement('td');cell.id=tdId(r,c);if(c===0)cell.textContent=r===1?signNum(a):'';else if(r===0){cell.textContent=signNum(coeffs[c-1]);cell.style.color=COLOURS[(c-1)%COLOURS.length]}else if(r===2&&c===coeffs.length)cell.classList.add('split');tr.append(cell)}table.append(tr)}$('operation').textContent='';$('result').hidden=true;$('result').innerHTML='';$('phase').textContent='PRÊT À DÉMARRER';$('playCorrection').disabled=false;}
+function showValue(r,c,n,cls){const el=$(tdId(r,c));el.textContent=signNum(n);if(cls)el.classList.add(cls)}
+function correctionScreen(){animationId++;stage('correct');$('correctionProblem').innerHTML=divisionHtml();makeTable()}
+const delay=ms=>new Promise(res=>setTimeout(res,ms));
+async function animateCorrection(){const token=++animationId;makeTable();$('playCorrection').disabled=true;const p=POLYS[selectedP],a=DIVISORS[selectedD],h=horner(p,a),alive=()=>token===animationId;
+$('phase').textContent='01 // PREMIER COEFFICIENT';marks([0,1]);$('operation').textContent='↓';await delay(620);if(!alive())return;showValue(2,1,h.bottom[0],'quotient');await delay(600);if(!alive())return;
+for(let i=1;i<p.length;i++){$('phase').textContent=`${i+1<10?'0':''}${i+1} // MULTIPLICATION`;marks([1,0],[2,i]);$('operation').textContent=`${signNum(h.bottom[i-1])} · (${signNum(a)}) = ${signNum(h.middle[i])}`;await delay(850);if(!alive())return;showValue(1,i+1,h.middle[i],'product');await delay(300);if(!alive())return;
+$('phase').textContent=`${i+1<10?'0':''}${i+1} // ADDITION`;marks([0,i+1],[1,i+1]);$('operation').textContent=`(${signNum(p[i])}) + (${signNum(h.middle[i])}) = ${signNum(h.bottom[i])}`;await delay(850);if(!alive())return;showValue(2,i+1,h.bottom[i],i===p.length-1?'remainder':'quotient');await delay(440);if(!alive())return;}
+clearMarks();$('operation').textContent='';$('phase').textContent='OPÉRATION TERMINÉE // RESTE TROUVÉ';$('result').innerHTML=`<span style="color:var(--blue)">Q(x) = ${polyHtml(h.q)}</span> &nbsp;&nbsp; <strong>R = ${signNum(h.r)}</strong>`;$('result').hidden=false;$('playCorrection').disabled=false;}
+function reset(){animationId++;stopTimers();selectedP=null;selectedD=null;renderChoices();updateChoice();stage('choice');}
+$('repeatCopy').onclick=startCopy;$('chooseBtn').onclick=startCopy;$('revealTeacher').onclick=revealTeacher;$('startTeacher').onclick=startTeacher;$('finishTeacher').onclick=()=>finishTeacher(true);$('goCorrection').onclick=correctionScreen;$('playCorrection').onclick=animateCorrection;$('replayCorrection').onclick=()=>{animationId++;makeTable()};$('another').onclick=reset;document.querySelectorAll('.fullscreen').forEach(b=>b.onclick=()=>{if(document.fullscreenElement)document.exitFullscreen?.();else document.documentElement.requestFullscreen?.();});renderChoices();updateChoice();stage('choice');
+
+// Une garde-fou pour toute modification future de la banque d'exercices.
+function verifyBank(){
+ let exact=0,maximum=0,invalid=[];
+ POLYS.forEach((coeffs,i)=>DIVISORS.forEach((a,j)=>{
+  const r=coeffs.reduce((acc,c)=>acc*a+c,0);
+  maximum=Math.max(maximum,Math.abs(r));
+  if(r===0)exact++;
+  if(Math.abs(r)>=100)invalid.push(`${i+1}/${j+1}: ${r}`);
+ }));
+ if(invalid.length||exact>2) console.error('Banque à réviser :', {invalid,exact,maximum});
+ else console.info(`Banque vérifiée : ${POLYS.length*DIVISORS.length} divisions ; ${exact} reste nul ; |R| maximum ${maximum}.`);
+}
+let helpPreviousFocus=null;
+function setHelp(open){
+ const overlay=$('shortcutOverlay');
+ if(open){helpPreviousFocus=document.activeElement;overlay.hidden=false;$('closeShortcuts').focus();}
+ else {overlay.hidden=true;if(helpPreviousFocus?.focus)helpPreviousFocus.focus();}
+}
+function mainStageAction(){
+ if(!$('shortcutOverlay').hidden)return;
+ if(!$('choiceScreen').hidden){if(!$('chooseBtn').disabled)startCopy();return;}
+ if(!$('copyScreen').hidden)return; // Les 20 secondes se terminent automatiquement.
+ if(!$('teacherScreen').hidden){
+  if(!$('revealTeacher').hidden)revealTeacher();
+  else if(!$('startTeacher').hidden)startTeacher();
+  else if(!$('finishTeacher').hidden)finishTeacher(true);
+  else if(!$('goCorrection').hidden)correctionScreen();
+  return;
+ }
+ if(!$('correctScreen').hidden && !$('playCorrection').disabled)animateCorrection();
+}
+document.querySelectorAll('.shortcutHelp').forEach(b=>b.onclick=()=>setHelp(true));
+$('closeShortcuts').onclick=()=>setHelp(false);
+$('shortcutOverlay').addEventListener('click',e=>{if(e.target===$('shortcutOverlay'))setHelp(false)});
+document.addEventListener('keydown',e=>{
+ if(e.key==='Escape'&&!$('shortcutOverlay').hidden){e.preventDefault();setHelp(false);return;}
+ if((e.key==='?'|| (e.key==='/'&&e.shiftKey))&&!e.altKey&&!e.ctrlKey&&!e.metaKey){e.preventDefault();setHelp($('shortcutOverlay').hidden);return;}
+ if(!$('shortcutOverlay').hidden)return;
+ if(e.shiftKey&&!e.altKey&&!e.ctrlKey&&!e.metaKey&&e.key.toLowerCase()==='n'){e.preventDefault();reset();return;}
+ if(e.ctrlKey||e.metaKey||e.altKey||e.target.matches('input,textarea,select'))return;
+ if(e.key.toLowerCase()==='r'){
+  if(!$('copyScreen').hidden || (!$('teacherScreen').hidden && !$('repeatCopy').hidden)){
+   e.preventDefault();startCopy();
+  } else if(!$('correctScreen').hidden){e.preventDefault();animationId++;makeTable();}
+  return;
+ }
+ if(e.code==='Space'&&e.target.tagName!=='BUTTON') {e.preventDefault();mainStageAction();}
+});
+verifyBank();
+
+</script></body></html>
